@@ -9,7 +9,7 @@ import { FaFacebookF,FaInstagram,FaLinkedinIn } from "react-icons/fa";
 
 const Fotter = () => {
   return (
-    <div className="bg-[#F5F5F3] pt-[55px] pb-[59px]">
+    <div className="bg-[#F5F5F3] py-[55px] ">
       <Container>
         <Flex>
    <div className="w-[41.67%]">
