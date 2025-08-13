@@ -50,8 +50,8 @@ const Header = () => {
         <Container>
           <Flex className={"justify-between"}>
             <div className="">
-              <Flex className={"gap-x-2.5"}>
-                <Image imgsrc={menu} className={"cursor-pointer"} />
+              <Flex className={"gap-x-2.5 cursor-pointer"}>
+                <Image imgsrc={menu} className={""} />
                 <Headding
                   as={"h3"}
                   className={"text-[14px] text-[#262626] "}
@@ -69,8 +69,8 @@ const Header = () => {
             </div>
             <div className="">
               <Flex className={"gap-x-10"}>
-                <Image imgsrc={user} />
-                <FaShoppingCart />
+                <Image imgsrc={user} className={"cursor-pointer"} />
+                <FaShoppingCart className={"cursor-pointer"} />
               </Flex>
             </div>
           </Flex>

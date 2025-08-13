@@ -9,8 +9,8 @@ import { FaFacebookF,FaInstagram,FaLinkedinIn } from "react-icons/fa";
 
 const Fotter = () => {
   return (
-    <div className="bg-[#F5F5F3] py-[55px] ">
-      <Container>
+    <div className="bg-[#F5F5F3]  ">
+      <Container className={"py-[55px]"}>
         <Flex>
    <div className="w-[41.67%]">
     <Flex>
@@ -61,12 +61,12 @@ const Fotter = () => {
   </Flex>
    </div>
 
-   <div className="w-[25%] pl-[30px]  mt-[-40px]">
+   <div className="w-[25%] pl-[30px]  mt-[-55px]">
        <Headding as={"h3"} text={"(052) 611-5711 company@domain.com"} className={'text-[16px] font-bold text-black w-[187px] pt-0 pb-4.5'}/>
 
         <Headding as={"p"} text={"575 Crescent Ave. Quakertown, PA 18951 "} className={'text-[14px]  text-[#6D6D6D] '}/> 
    </div>
-   <div className="w-1/3 pl-[38px] mt-[-110px]">
+   <div className="w-1/3 pl-[38px] mt-[-105px]">
    <Image imgsrc={logo} className={"w-[130px]"}/>
    </div>
         </Flex>
