@@ -7,7 +7,7 @@ import user from "/src/assets/user.png";
 import { Link } from "react-router-dom";
 import Headding from "../Headding";
 import { IoSearch } from "react-icons/io5";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart,FaUser,FaCaretDown } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -15,33 +15,34 @@ const Header = () => {
       <div className="py-[30px] bg-white">
         <Container>
           <Flex className={"justify-between"}>
-            <div className="">
-              <Image imgsrc={logo} />
+            <div className="w-[40%]">
+              <Link to={"/"}><Image imgsrc={logo} /></Link>
+              
             </div>
-            <div className="">
-              <ul className="flex  gap-x-5">
+            <div className="w-[60%]">
+              <ul className="flex text-menuText text-14 gap-x-5">
                 <Link to={"/"}>
-                  <li className="text-[#6D6D6D] text-[14px]">Home</li>
+                  <li className=" hover:text-menuHover hover:font-bold  duration-500">Home</li>
                 </Link>
 
                 <Link to={"shop"}>
-                  <li className="text-[#6D6D6D] text-[14px]"> Shop</li>
+                  <li className="hover:text-menuHover hover:font-bold duration-500"> Shop</li>
                 </Link>
 
                 <Link to={"/about"}>
-                  <li className="text-[#6D6D6D] text-[14px]">About</li>
+                  <li className="hover:text-menuHover hover:font-bold duration-500">About</li>
                 </Link>
 
                 <Link to={"/contacts"}>
-                  <li className="text-[#6D6D6D] text-[14px]">Contacts</li>
+                  <li className="hover:text-menuHover hover:font-bold duration-500">Contacts</li>
                 </Link>
 
                 <Link to={"/journal"}>
-                  <li className="text-[#6D6D6D] text-[14px]">Journal</li>
+                  <li className="hover:text-menuHover hover:font-bold duration-500">Journal</li>
                 </Link>
               </ul>
             </div>
-            <div className=""></div>
+          
           </Flex>
         </Container>
       </div>
@@ -65,12 +66,15 @@ const Header = () => {
                 placeholder="Search Products"
                 className="bg-white text-[#C4C4C4] text-[14px] w-[601px] py-4 pl-5.5"
               />
-              <IoSearch className="absolute right-[3%] top-[35%] cursor-pointer" />
+              <IoSearch className="absolute right-[3%] top-[50%] -translate-y-1/2 cursor-pointer" />
             </div>
             <div className="">
-              <Flex className={"gap-x-10"}>
-                <Image imgsrc={user} className={"cursor-pointer"} />
-                <FaShoppingCart className={"cursor-pointer"} />
+              <Flex className={"gap-x-10 cursor-pointer"}>
+                <div className=" flex">
+                  <FaUser />
+                  <FaCaretDown />
+                </div>
+                <FaShoppingCart  />
               </Flex>
             </div>
           </Flex>

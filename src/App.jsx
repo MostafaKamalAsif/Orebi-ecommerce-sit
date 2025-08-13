@@ -8,6 +8,7 @@ import About from './Components/Pages/About';
 import Shop from './Components/Pages/Shop';
 import Contacts from './Components/Pages/Contacts';
 import Journal from './Components/Pages/Journal';
+import Error from './Components/Pages/Error';
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
         <Route path="about" element={<About/>}/>
         <Route path="contacts" element={<Contacts/>}/>
         <Route path="journal" element={<Journal/>}/>
+        <Route path='*' element={<Error/>}/>
       </Route>
    
      </Routes>

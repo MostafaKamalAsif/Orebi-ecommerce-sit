@@ -1,10 +1,15 @@
 import React from 'react'
+import Banner from '../Layouts/Banner'
+import Intro from '../Layouts/Intro'
+import Ads from '../Layouts/Ads'
 
 
 const Home = () => {
   return (
     <>
-    <div className="bg-teal-100 py-[70px] text-center text-2xl font-bold text-black">This is Home page</div>
+    <Banner/>
+    <Intro/>
+    <Ads/>
     </>
   )
 }
