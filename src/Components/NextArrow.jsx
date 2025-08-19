@@ -1,15 +1,18 @@
 import React from 'react'
 
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import Next_arrow from "/src/assets/Next_button.png"
+import Image from './Image';
 const NextArrow = (props) => {
      const { onClick } = props;
   return (
     
     <div
       
-      className='absolute top-1/2 right-3 -translate-y-1/2  text-3xl'
+      className='absolute top-[43%] right-6 translate-y-[-50%]  '
       onClick={onClick}
-    > <FaArrowAltCircleRight className='fill-neutral-500 cursor-pointer'/></div>
+    > 
+    <Image imgsrc={Next_arrow} className={"cursor-pointer w-full"}/>
+    </div>
   );
 }
 

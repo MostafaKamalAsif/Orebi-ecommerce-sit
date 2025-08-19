@@ -1,7 +1,7 @@
 import React from "react";
 import Headding from "../Headding";
 import Container from "../Container";
-import Product from "../Layouts/Product";
+import Product from "./Product";
 import new_1 from "/src/assets/new_1.png";
 import new_2 from "/src/assets/SmartWatch.png";
 import new_3 from "/src/assets/basket.png";
@@ -24,7 +24,9 @@ const NewArrivals = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
      nextArrow: <NextArrow />,
-     prevArrow: <PrevArrow />
+     prevArrow: <PrevArrow />,
+  
+     
     
   };
   return (
@@ -37,30 +39,30 @@ const NewArrivals = () => {
             text={"New Arrivals"}
             className={"font-bold text-black text-[39px] pb-[48px]"}
           />
-<Slider {...settings}>
-      <div className="px-2">
+<Slider {...settings} className="!-mx-5">
+      <div className="px-5">
         <Link to={"/"}>
-        <Product productImg={new_1} className={"w-full"} tag={"10%"} /></Link>
+        <Product productImg={new_1} className={"w-full"} tag={"10%"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
       </div>
-      <div  className="px-2">
+      <div  className="px-5">
         <Link to={"/"}>
-          <Product productImg={new_2} className={"w-full"} tag={"New"} /></Link>
+          <Product productImg={new_2} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"} /></Link>
       </div>
-      <div  className="px-2">
+      <div  className="px-5">
         <Link to={"/"}>
-       <Product productImg={new_3} className={"w-full"} tag={"New"} /></Link>
+       <Product productImg={new_3} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
       </div>
-      <div  className="px-2">
+      <div  className="px-5">
         <Link to={"/"}>
-         <Product productImg={new_4} className={"w-full"} tag={"New"} /></Link>
+         <Product productImg={new_4} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
       </div>
-      <div  className="px-2">
+      <div  className="px-5">
         <Link to={"/"}>
-         <Product productImg={new_5} className={"w-full"} tag={"New"} /></Link>
+         <Product productImg={new_5} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
       </div>
-      <div  className="px-2">
+      <div  className="px-5">
         <Link to={"/"}>
-        <Product productImg={new_6} className={"w-full"} tag={"New"} /></Link>
+        <Product productImg={new_6} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
       </div>
     </Slider>
         </Container>

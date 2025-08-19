@@ -1,13 +1,14 @@
 import React from 'react'
 import Image from '../Image'
-import Tag from './Tag'
+import Tag from '/src/Components/Tag'
 import Headding from '../Headding'
 import { FaHeart,FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
-const Product = ({productImg,tag}) => {
+const Product = ({productImg,tag,ProductName,ProductPrice,text}) => {
   return (
    <>
-   <div className="relative group">
+   <div className="">
+        <div className="relative group">
     <Image imgsrc={productImg}/>
     <Tag tagtext={tag} className={"absolute top-5 left-5"}/>
     <div className="pt-5 absolute top-[55%] opacity-0 group-hover:opacity-100 duration-500 left-0 right-0 bottom-0 bg-white ">
@@ -24,6 +25,12 @@ const Product = ({productImg,tag}) => {
 <FaShoppingCart/>
         </div>
     </div>
+    </div>
+    <div className="flex items-center justify-between pt-6">
+        <Headding as={"h3"} text={ProductName} className={"text-xl font-bold text-[#262626]"}/>
+        <Headding as={"h3"} text={ProductPrice} className={" text-menuText"}/>
+    </div>
+    <Headding as={"h3"} text={text} className={" text-menuText"}/>
    </div>
    </>
   )

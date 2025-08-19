@@ -1,13 +1,18 @@
 import React from 'react'
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import Prev_arrow from "/src/assets/Previous_button.png"
+import Image from './Image';
 const PrevArrow = (props) => {
     const { onClick } = props;
   return (
     <>
-     <div  
-          className='absolute top-1/2 left-3 -translate-y-1/2  text-3xl z-10'
-          onClick={onClick}
-        > < FaArrowAltCircleLeft className='fill-neutral-500 cursor-pointer'/></div></>
+    <div
+      
+      className='absolute top-[43%] left-6 translate-y-[-50%]  z-10'
+      onClick={onClick}
+    > 
+    <Image imgsrc={Prev_arrow} className={"cursor-pointer w-full "}/>
+    </div>
+        </>
   );
 }
 
