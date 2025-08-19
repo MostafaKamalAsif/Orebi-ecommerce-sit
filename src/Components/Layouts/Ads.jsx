@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 const Ads = () => {
   return (
     <>
-    <div className="pt-[174px] pb-[128px] ">
+    <div className=" py-[128px] ">
         <Container>
             <Flex className={'justify-between'}>
                 <div className="w-[48.5%] ">
