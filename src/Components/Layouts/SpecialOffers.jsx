@@ -5,7 +5,7 @@ import Product from './Product'
 import Table from "/src/assets/table.png"
 import HeadPhone from "/src/assets/Headphone.png"
 import Cap from "/src/assets/cap.png"
-import SunGlass from "/src/assets/SunGlass.png"
+import SunGlass from "/src/assets/sunglass.png"
 import Headding from '../Headding'
 import { Link } from 'react-router-dom'
 const SpecialOffers = () => {
