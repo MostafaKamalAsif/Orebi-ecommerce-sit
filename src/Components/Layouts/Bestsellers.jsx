@@ -4,7 +4,7 @@ import Flex from '../Flex'
 import Product from './Product'
 import FlowerPot from "/src/assets/flowerpot.png"
 import FashionBag from "/src/assets/Fbag.png"
-import Cap from "/src/assets/cap.png"
+import Cap from "/src/assets/cap.png";
 import SchoolBag from "/src/assets/Sbag.png"
 import Headding from '../Headding'
 import { Link } from 'react-router-dom'
