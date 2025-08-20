@@ -16,7 +16,7 @@ const SpecialOffers = () => {
             
              <Headding
             as={"h3"}
-            text={"Our Bestsellers"}
+            text={"Special Offers"}
             className={"font-bold text-black text-[39px] pb-[48px]"}
           />
         <Flex className={"gap-x-10"}>
