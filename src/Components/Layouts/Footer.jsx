@@ -68,21 +68,21 @@ const Fotter = () => {
 
         <Headding as={"p"} text={"575 Crescent Ave. Quakertown, PA 18951 "} className={'text-[14px]  text-[#6D6D6D] '}/> 
    </div>
-   <div className="mt-[-105px]">
+   <div className="w-[31%] mt-[-105px]">
     
    <Image imgsrc={logo} className={"w-[130px]"}/>
    </div>
-        </Flex>
+        </Flex >
         <div className="pt-[65px]">
-          <Flex>
-          <div className="w-[66.67%] ">
+          <Flex className={"justify-between"}>
+          <div className=" ">
             <Flex className={"gap-x-6.5"}>
           <FaFacebookF />
           <FaLinkedinIn />
           <FaInstagram />
           </Flex>
           </div>
-          <div className="w-1/3 pl-[50px]">
+          <div className="w-[34%] pl-[50px]">
                    <Headding as={"p"} text={"2020 Orebi Minimal eCommerce Figma Template by Adveits"} className={'text-[14px]  text-[#6D6D6D] '}/> 
           </div>
           </Flex>
