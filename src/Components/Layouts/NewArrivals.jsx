@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Headding from "../Headding";
 import Container from "../Container";
 import Product from "./Product";
@@ -15,8 +15,19 @@ import Slider from "react-slick";
 import NextArrow from "../NextArrow";
 import PrevArrow from "../PrevArrow";
 import { Link } from "react-router-dom";
+import axios  from "axios";
 
 const NewArrivals = () => {
+let [alldata,setalldata]=useState([])  
+useEffect(()=>{
+
+  async function alldatas() {
+    let data=await axios.get("https://mostafakamalasif.github.io/Orebi-API/index.json")
+     setalldata(data.data.data)
+  }
+alldatas()
+},[])
+
     var settings = {
     dots: false,
     infinite: true,
@@ -26,7 +37,7 @@ const NewArrivals = () => {
      nextArrow: <NextArrow />,
      prevArrow: <PrevArrow />,
   
-     
+    
     
   };
   return (
@@ -39,31 +50,17 @@ const NewArrivals = () => {
             text={"New Arrivals"}
             className={"font-bold text-black text-[39px] pb-[48px]"}
           />
-<Slider {...settings} className="!-mx-5">
+<Slider {...settings} className="-mx-5">
+  {
+    alldata.map((iteam)=>
+   
       <div className="px-5">
         <Link to={"/"}>
-        <Product productImg={new_1} className={"w-full"} tag={"10%"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
+        <Product productImg={iteam.img.formats.thumbnail.url }  tag={"10%"} ProductName={iteam.title} ProductPrice={`$${iteam.price}`}/></Link>
       </div>
-      <div  className="px-5">
-        <Link to={"/"}>
-          <Product productImg={new_2} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"} /></Link>
-      </div>
-      <div  className="px-5">
-        <Link to={"/"}>
-       <Product productImg={new_3} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
-      </div>
-      <div  className="px-5">
-        <Link to={"/"}>
-         <Product productImg={new_4} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
-      </div>
-      <div  className="px-5">
-        <Link to={"/"}>
-         <Product productImg={new_5} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
-      </div>
-      <div  className="px-5">
-        <Link to={"/"}>
-        <Product productImg={new_6} className={"w-full"} tag={"New"} ProductName={"Basic Crew Neck Tee"} ProductPrice={"$44.00"}/></Link>
-      </div>
+       )
+  }
+     
     </Slider>
         </Container>
       </div>

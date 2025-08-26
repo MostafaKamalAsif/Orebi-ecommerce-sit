@@ -8,7 +8,7 @@ const NextArrow = (props) => {
     
     <div
       
-      className='absolute top-[43%] right-6 translate-y-[-50%]  '
+      className='absolute top-[34%] right-6 translate-y-[-50%]  '
       onClick={onClick}
     > 
     <Image imgsrc={Next_arrow} className={"cursor-pointer w-full"}/>

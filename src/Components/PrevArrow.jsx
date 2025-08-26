@@ -7,7 +7,7 @@ const PrevArrow = (props) => {
     <>
     <div
       
-      className='absolute top-[43%] left-6 translate-y-[-50%]  z-10'
+      className='absolute top-[34%] left-6 translate-y-[-50%]  z-10'
       onClick={onClick}
     > 
     <Image imgsrc={Prev_arrow} className={"cursor-pointer w-full "}/>

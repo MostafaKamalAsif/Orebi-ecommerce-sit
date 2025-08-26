@@ -11,7 +11,7 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
         <div className="relative group">
     <Image imgsrc={productImg} className={imgclassName}/>
     <Tag tagtext={tag} className={"absolute top-5 left-5"}/>
-    <div className="pt-5 absolute top-[55%] opacity-0 group-hover:opacity-100 duration-700 left-0 right-0 bottom-0 bg-white ">
+    <div className="pt-5 absolute top-[53%] opacity-0 group-hover:opacity-100 duration-700 left-0 right-0 bottom-0 bg-white ">
         <div className="flex gap-x-[15px] items-center justify-end pr-7.5">
 <Headding as={"p"} text={"Add to Wish List"} className={"text-menuText text-[16px]"}/>
 <FaHeart/>
