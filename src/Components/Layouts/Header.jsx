@@ -4,7 +4,7 @@ import Image from "../Image";
 import logo from "/src/assets/logo.png";
 import menu from "/src/assets/icon.svg";
 import user from "/src/assets/user.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Headding from "../Headding";
 import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
@@ -19,6 +19,7 @@ const Header = () => {
   const userbtn=()=>{
     setShowUser(!showUser)
   }
+  const location=useLocation()
   return (
     <>
       <div className="py-[30px] bg-white">
@@ -31,33 +32,33 @@ const Header = () => {
             </div>
             <div className="w-[60%]">
               <ul className="flex text-menuText text-14 gap-x-5">
-                <Link to={"/"}>
-                  <li className=" hover:text-menuHover hover:font-bold  duration-500">
+                <Link to={"/"} className={`${location.pathname === "/" ? "border-b-2 border-black text-black font-bold ": ""}`} >
+                  <li className=" hover:text-menuHover ">
                     Home
                   </li>
                 </Link>
 
-                <Link to={"shop"}>
-                  <li className="hover:text-menuHover hover:font-bold duration-500">
+                <Link to={"shop"} className={`${location.pathname === "/shop"?"border-b-2 border-black text-black font-bold ": "" }`}>
+                  <li className="hover:text-menuHover ">
                     {" "}
                     Shop
                   </li>
                 </Link>
 
-                <Link to={"/about"}>
-                  <li className="hover:text-menuHover hover:font-bold duration-500">
+                <Link to={"about"} className={`${location.pathname === "/about"?"border-b-2 border-black text-black font-bold ": "" }`}>
+                  <li className="hover:text-menuHover ">
                     About
                   </li>
                 </Link>
 
-                <Link to={"/contacts"}>
-                  <li className="hover:text-menuHover hover:font-bold duration-500">
+                <Link to={"contacts"} className={`${location.pathname === "/contacts"?"border-b-2 border-black text-black font-bold ": "" }`}>
+                  <li className="hover:text-menuHover">
                     Contacts
                   </li>
                 </Link>
 
-                <Link to={"/journal"}>
-                  <li className="hover:text-menuHover hover:font-bold duration-500">
+                <Link to={"journal"} className={`${location.pathname === "/journal"?"border-b-2 border-black text-black font-bold  ": "" }`}>
+                  <li className="hover:text-menuHover ">
                     Journal
                   </li>
                 </Link>
@@ -115,9 +116,12 @@ const Header = () => {
                 </div>
                 {showUser && (
                   <div className="absolute top-[200%] left-[5%] bg-black w-[180px] rounded-2xl p-4">
-                  <ul className="text-white text-xl  text-center">
-                    <li>My Account</li>
-                    <li>Log Out</li>
+                  <ul className="text-white text-xl   text-center">
+                    <li className="pt-3">My Account</li>
+                    <li className="pt-3">Log Out</li>
+                    <Link to={"sign_up"}>
+                    <li className="pt-3">Sign Up</li>
+                    </Link>
                   </ul>
                   </div>
                 )}
