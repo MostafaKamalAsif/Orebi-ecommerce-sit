@@ -11,6 +11,7 @@ import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
 import { useState } from "react";
 
 const Header = () => {
+  
   let [show, setshow] = useState(false);
    let [showUser, setShowUser] = useState(false);
   const showbtn = () => {

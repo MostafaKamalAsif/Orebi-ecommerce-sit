@@ -9,11 +9,11 @@ import axios from 'axios'
 const NewCustomer = () => {
       const [dropdown, setdropdown] = useState(false);
       const [dropdownDistrict, setdropdownDistrict] = useState(false);
-      const [Divison, setDivison] = useState([]);
-      const [selectedDivison, setselectedDivison] = useState("");
-      const [District, setDistrict] = useState([]);
-      const [selectedDistrict, setselectedDistrict] = useState("");
-      const [selectedDivisionId, setselectedDivisionId] = useState("");
+      const [Divison, setDivison] = useState([]); // all divisions
+      const [selectedDivison, setselectedDivison] = useState("");// division name (shown in input)
+      const [District, setDistrict] = useState([]);// all District
+      const [selectedDistrict, setselectedDistrict] = useState("");// chosen district name
+      const [selectedDivisionId, setselectedDivisionId] = useState("");// division id (for filtering)
      
       
       useEffect(()=>{
@@ -126,7 +126,7 @@ Divison.map((item)=> (
     {filteredDistricts.length > 0 ? (
       filteredDistricts.map((item) => (
         <DropDown
-          key={item.id}
+          
           text={item.bn_name}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
           onClick={() => {
