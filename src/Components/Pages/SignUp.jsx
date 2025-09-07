@@ -9,6 +9,7 @@ import DropDown from "../DropDown";
 import SignUpIntro from "../Layouts/SignUpIntro";
 import PersonalDetails from "../Layouts/PersonalDetails";
 import NewCustomer from "../Layouts/NewCustomer";
+import { Password } from "../Layouts/Password";
 
 const SignUp = () => {
 
@@ -17,7 +18,7 @@ const SignUp = () => {
     <SignUpIntro/>
     <PersonalDetails/>
     <NewCustomer/>
-     
+     <Password/>
     </>
   );
 };

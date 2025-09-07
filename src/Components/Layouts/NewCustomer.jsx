@@ -47,7 +47,7 @@ const NewCustomer = () => {
   className="flex items-center gap-2 w-[500px] border-b border-[#F0F0F0] justify-between cursor-pointer"
   onClick={dropdownBtn}
 >
-  <Input type="text" title="Division" placeholder="Please select" icon={dropdown ? (
+  <Input divclassName={"w-[500px]"} type="text" title="Division" placeholder="Please select" icon={dropdown ? (
     <RiArrowDropUpLine className="text-3xl font-bold" />
   ) : (
     <RiArrowDropDownLine className="text-3xl font-bold" />
@@ -60,7 +60,7 @@ const NewCustomer = () => {
   className="flex items-center gap-2 w-[500px] border-b border-[#F0F0F0] justify-between cursor-pointer"
   onClick={dropdownBtnDistrict}
 >
-  <Input type="text" title="Division" placeholder="Please select" icon={dropdownDistrict ? (
+  <Input divclassName={"w-[500px]"} type="text" title="Division" placeholder="Please select" icon={dropdownDistrict ? (
     <RiArrowDropUpLine className="text-3xl font-bold" />
   ) : (
     <RiArrowDropDownLine className="text-3xl font-bold" />
