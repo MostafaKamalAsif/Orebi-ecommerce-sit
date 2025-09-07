@@ -1,13 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../Container'
 import Headding from '../Headding'
 import Flex from '../Flex'
 import Input from '../Input'
 import DropDown from '../DropDown'
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+import axios from 'axios'
 const NewCustomer = () => {
       const [dropdown, setdropdown] = useState(false);
       const [dropdownDistrict, setdropdownDistrict] = useState(false);
+      const [Divison, setDivison] = useState([]);
+      const [selectedDivison, setselectedDivison] = useState("");
+      const [District, setDistrict] = useState([]);
+      const [selectedDistrict, setselectedDistrict] = useState("");
+      const [selectedDivisionId, setselectedDivisionId] = useState("");
+     
+      
+      useEffect(()=>{
+        async function allDivisons() {
+          let allDeivison=await axios.get("https://raw.githubusercontent.com/ifahimreza/bangladesh-geojson/master/bd-divisions.json")
+          setDivison(allDeivison.data.divisions); 
+          
+        }
+async function allDistrict() {
+          let Districts=await axios.get( "https://raw.githubusercontent.com/ifahimreza/bangladesh-geojson/master/bd-districts.json")
+          setDistrict(Districts.data.districts); 
+        
+          
+        }
+ allDistrict()
+        allDivisons()
+      },[])
+
+     
      
     const dropdownBtnDistrict = () => {
         setdropdownDistrict(!dropdownDistrict);
@@ -15,6 +40,10 @@ const NewCustomer = () => {
       const dropdownBtn = () => {
         setdropdown(!dropdown);
       };
+      // Filtered Districts
+const filteredDistricts = District.filter(
+  (item) => item.division_id === selectedDivisionId
+);
   return (
     <>
     <div className="">
@@ -42,12 +71,12 @@ const NewCustomer = () => {
 
             <div className=" cursor-pointer  relative pb-[69px]">
                 <Flex className={"gap-x-6"}>
-        
+        {/* Divisions  */}
 <div
   className="flex items-center gap-2 w-[500px] border-b border-[#F0F0F0] justify-between cursor-pointer"
   onClick={dropdownBtn}
 >
-  <Input divclassName={"w-[500px]"} type="text" title="Division" placeholder="Please select" icon={dropdown ? (
+  <Input divclassName={"w-[500px]"} type="text" value={selectedDivison} title="Division" placeholder="Please select" icon={dropdown ? (
     <RiArrowDropUpLine className="text-3xl font-bold" />
   ) : (
     <RiArrowDropDownLine className="text-3xl font-bold" />
@@ -60,7 +89,7 @@ const NewCustomer = () => {
   className="flex items-center gap-2 w-[500px] border-b border-[#F0F0F0] justify-between cursor-pointer"
   onClick={dropdownBtnDistrict}
 >
-  <Input divclassName={"w-[500px]"} type="text" title="Division" placeholder="Please select" icon={dropdownDistrict ? (
+  <Input divclassName={"w-[500px]"} type="text" title="District" value={selectedDistrict} placeholder="Please select" icon={dropdownDistrict ? (
     <RiArrowDropUpLine className="text-3xl font-bold" />
   ) : (
     <RiArrowDropDownLine className="text-3xl font-bold" />
@@ -68,26 +97,50 @@ const NewCustomer = () => {
   
 </div>
 
-</Flex>
-          {dropdown && (
-            <DropDown
-              text={"hello"}
+</Flex>  
+{dropdown && (
+<div className="w-[500px] p-3 absolute top-[55%] bg-neutral-100 shadow rounded-2xl left-0 ">{
+Divison.map((item)=> (
+ 
+           <DropDown
+          
+              text={item.bn_name}
               className={
-                "w-[500px]  text-[14px] p-3 absolute bottom-[5%] bg-neutral-200 shadow rounded-2xl left-0 text-center"
+                "  px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
               }
+               onClick={() => {
+          setselectedDivison(item.bn_name); // Update input
+          setdropdown(false); 
+           setselectedDivisionId(item.id);     // Save division ID
+          setselectedDistrict("");                   // Reset district
+        }}
             />
-          )}
+         
+ 
+            ))}
+            </div>
+ )}         
 
-           {dropdownDistrict && (
-            <DropDown
-              text={"welcome "}
-              className={
-                "w-[500px]  text-[14px] p-3 absolute bottom-[5%] bg-neutral-200 shadow rounded-2xl left-[520px] text-center"
-              }
-            />
-          )}
-              
-              
+    {dropdownDistrict && (
+  <div className="w-[500px] p-3 absolute top-[55%] bg-neutral-100 shadow rounded-2xl left-[520px]">
+    {filteredDistricts.length > 0 ? (
+      filteredDistricts.map((item) => (
+        <DropDown
+          key={item.id}
+          text={item.bn_name}
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+          onClick={() => {
+            setselectedDistrict(item.bn_name); // Set district name
+            setdropdownDistrict(false);        // Close dropdown
+          }}
+        />
+      ))
+    ) : (
+      <p className="px-4 py-2 text-sm text-gray-500">No districts found</p>
+    )}
+  </div>
+)}
+
                 
  </div>
           <hr className="border-[#F0F0F0] " />
