@@ -1,14 +1,18 @@
 import React from 'react'
+import Headding from './Headding'
 
 
-const Input = ({type,placeholder,className,title}) => {
+const Input = ({type,placeholder,className,title,icon}) => {
   return (
     <>
    
-     
-        <label className={` block${className}`}>{title}</label>
-       
-<input type={type} placeholder={placeholder} className={`w-[500px] border-b-1 outline-0 border-[#F0F0F0] text-[14px] py-4 `}/>
+     <div className="w-[500px]">
+      <Headding as={"h3"} text={title} className={className}/>
+       <div className="flex items-center">
+<input type={type} placeholder={placeholder}   className={`w-[500px] border-b-1 outline-0 border-[#F0F0F0] text-[14px] py-4 `}/>
+    {icon && <span>{icon}</span>}
+     </div>
+     </div>  
 
  
     </>
