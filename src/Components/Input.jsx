@@ -10,7 +10,7 @@ const Input = ({type,placeholder,divclassName,className,title,icon,value}) => {
       <Headding as={"h3"} text={title} className={className}/>
        <div className="flex items-center">
 <input type={type} placeholder={placeholder} value={value}  className={`w-[500px] border-b-1 outline-0 border-[#F0F0F0] text-[14px] py-4 `}/>
-    {icon && <span>{icon}</span>}
+     <Headding as={"h3"} text={icon}/>
      </div>
      </div>  
 

@@ -59,11 +59,11 @@ const filteredDistricts = District.filter(
               placeholder={"4279 Zboncak Port Suite 6212"}
               title={"Address 1"}
             />
-            <Input type={"text"} placeholder={"_"} title={"Address 2"} />
-            <Input type={"number"} placeholder={"05228"} title={"City "} />
+            <Input type={"text"} placeholder={"-"} title={"Address 2"} />
+            <Input type={"text"} placeholder={"Your City"} title={"City "} />
             <Input
               type={"number"}
-              placeholder={"Your phone number"}
+              placeholder={"05228"}
               title={"Post Code "}
             />
             </Flex>
@@ -84,7 +84,7 @@ const filteredDistricts = District.filter(
   
 </div>
 
-
+ {/* District  */}
 <div
   className="flex items-center gap-2 w-[500px] border-b border-[#F0F0F0] justify-between cursor-pointer"
   onClick={dropdownBtnDistrict}
@@ -106,7 +106,7 @@ Divison.map((item)=> (
           
               text={item.bn_name}
               className={
-                "  px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                "  px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white cursor-pointer"
               }
                onClick={() => {
           setselectedDivison(item.bn_name); // Update input
@@ -128,7 +128,7 @@ Divison.map((item)=> (
         <DropDown
           
           text={item.bn_name}
-          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white cursor-pointer"
           onClick={() => {
             setselectedDistrict(item.bn_name); // Set district name
             setdropdownDistrict(false);        // Close dropdown

@@ -23,7 +23,10 @@ const Header = () => {
   const location=useLocation()
   return (
     <>
-      <div className="py-[30px] bg-white">
+    
+      <div className="py-[30px] bg-white" onClick={()=>{
+        setnotshowUser
+      }}>
         <Container>
           <Flex className={"justify-between"}>
             <div className="w-[40%]">
@@ -84,14 +87,14 @@ const Header = () => {
               </Flex>
 
               {show && (
-                <div className="absolute top-[80%] left-[6%] bg-black w-[250px] rounded-2xl p-4">
-                  <ul className="text-white text-xl  text-center ">
-                    <li className="py-3">Accesories</li>
-                    <li className="py-3">Furniture</li>
-                    <li className="py-3">Electronics</li>
-                    <li className="py-3">Clothes</li>
-                    <li className="py-3">Bags</li>
-                    <li className="py-3">Home appliances</li>
+                <div className="absolute top-[80%] left-[6%]  bg-neutral-100  w-[200px] rounded-2xl p-4">
+                  <ul className="px-4 py-2 text-sm text-gray-700  ">
+                    <li className="py-3 text-[16px]">Accesories</li>
+                    <li className="py-3 text-[16px]">Furniture</li>
+                    <li className="py-3 text-[16px]">Electronics</li>
+                    <li className="py-3 text-[16px]">Clothes</li>
+                    <li className="py-3 text-[16px]">Bags</li>
+                    <li className="py-3 text-[16px]">Home appliances</li>
                     
                   </ul>
                 </div>
@@ -113,19 +116,19 @@ const Header = () => {
                 <div onClick={userbtn} className=" flex">
                   <FaUser />
                   <FaCaretDown />
-
-                </div>
-                {showUser && (
-                  <div className="absolute top-[200%] left-[5%] bg-black w-[180px] rounded-2xl p-4">
-                  <ul className="text-white text-xl   text-center">
-                    <li className="pt-3">My Account</li>
-                    <li className="pt-3">Log Out</li>
+{showUser && (
+                  <div className="absolute top-[40px] left-[5%] bg-neutral-100  w-[180px] rounded-bl-2xl rounded-br-2xl p-4" >
+                  <ul className="px-4 py-2 text-sm text-gray-700 ">
+                    
+                    <li className="pt-3 text-[16px] ">Log In</li>
                     <Link to={"sign_up"}>
-                    <li className="pt-3">Sign Up</li>
+                    <li className="pt-3 text-[16px]">Sign Up</li>
                     </Link>
                   </ul>
                   </div>
                 )}
+                </div>
+                
                 
 </div>
 
