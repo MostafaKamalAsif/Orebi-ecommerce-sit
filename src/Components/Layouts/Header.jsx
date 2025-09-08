@@ -9,24 +9,27 @@ import Headding from "../Headding";
 import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  
   let [show, setshow] = useState(false);
-   let [showUser, setShowUser] = useState(false);
+  let [showUser, setShowUser] = useState(false);
+  let [showcart, setShowcart] = useState(false);
+  let data = useSelector((state) => state.addcart.value);
+
   const showbtn = () => {
     setshow(!show);
   };
-  const userbtn=()=>{
-    setShowUser(!showUser)
-  }
-  const location=useLocation()
+  const userbtn = () => {
+    setShowUser(!showUser);
+  };
+  const showcartbtn = () => {
+    setShowcart(!showcart);
+  };
+  const location = useLocation();
   return (
     <>
-    
-      <div className="py-[30px] bg-white" onClick={()=>{
-        setnotshowUser
-      }}>
+      <div className="py-[30px] bg-white">
         <Container>
           <Flex className={"justify-between"}>
             <div className="w-[40%]">
@@ -36,35 +39,59 @@ const Header = () => {
             </div>
             <div className="w-[60%]">
               <ul className="flex text-menuText text-14 gap-x-5">
-                <Link to={"/"} className={`${location.pathname === "/" ? "border-b-2 border-black text-black font-bold ": ""}`} >
-                  <li className=" hover:text-menuHover ">
-                    Home
-                  </li>
+                <Link
+                  to={"/"}
+                  className={`${
+                    location.pathname === "/"
+                      ? "border-b-2 border-black text-black font-bold "
+                      : ""
+                  }`}
+                >
+                  <li className=" hover:text-menuHover ">Home</li>
                 </Link>
 
-                <Link to={"shop"} className={`${location.pathname === "/shop"?"border-b-2 border-black text-black font-bold ": "" }`}>
-                  <li className="hover:text-menuHover ">
-                    {" "}
-                    Shop
-                  </li>
+                <Link
+                  to={"shop"}
+                  className={`${
+                    location.pathname === "/shop"
+                      ? "border-b-2 border-black text-black font-bold "
+                      : ""
+                  }`}
+                >
+                  <li className="hover:text-menuHover "> Shop</li>
                 </Link>
 
-                <Link to={"about"} className={`${location.pathname === "/about"?"border-b-2 border-black text-black font-bold ": "" }`}>
-                  <li className="hover:text-menuHover ">
-                    About
-                  </li>
+                <Link
+                  to={"about"}
+                  className={`${
+                    location.pathname === "/about"
+                      ? "border-b-2 border-black text-black font-bold "
+                      : ""
+                  }`}
+                >
+                  <li className="hover:text-menuHover ">About</li>
                 </Link>
 
-                <Link to={"contacts"} className={`${location.pathname === "/contacts"?"border-b-2 border-black text-black font-bold ": "" }`}>
-                  <li className="hover:text-menuHover">
-                    Contacts
-                  </li>
+                <Link
+                  to={"contacts"}
+                  className={`${
+                    location.pathname === "/contacts"
+                      ? "border-b-2 border-black text-black font-bold "
+                      : ""
+                  }`}
+                >
+                  <li className="hover:text-menuHover">Contacts</li>
                 </Link>
 
-                <Link to={"journal"} className={`${location.pathname === "/journal"?"border-b-2 border-black text-black font-bold  ": "" }`}>
-                  <li className="hover:text-menuHover ">
-                    Journal
-                  </li>
+                <Link
+                  to={"journal"}
+                  className={`${
+                    location.pathname === "/journal"
+                      ? "border-b-2 border-black text-black font-bold  "
+                      : ""
+                  }`}
+                >
+                  <li className="hover:text-menuHover ">Journal</li>
                 </Link>
               </ul>
             </div>
@@ -75,7 +102,6 @@ const Header = () => {
       <div className="py-[25px] bg-[#F5F5F3] relative">
         <Container>
           <Flex className={"justify-between"}>
-
             <div onClick={showbtn} className="">
               <Flex className={"gap-x-2.5 cursor-pointer"}>
                 <Image imgsrc={menu} className={""} />
@@ -95,10 +121,8 @@ const Header = () => {
                     <li className="py-3 text-[16px]">Clothes</li>
                     <li className="py-3 text-[16px]">Bags</li>
                     <li className="py-3 text-[16px]">Home appliances</li>
-                    
                   </ul>
                 </div>
-                
               )}
             </div>
 
@@ -111,29 +135,36 @@ const Header = () => {
               <IoSearch className="absolute right-[3%] top-[50%] -translate-y-1/2 cursor-pointer" />
             </div>
             <div className="">
-              <Flex className={"gap-x-10 cursor-pointer"}>
-               <div className="relative">
-                <div onClick={userbtn} className=" flex">
-                  <FaUser />
-                  <FaCaretDown />
-{showUser && (
-                  <div className="absolute top-[40px] left-[5%] bg-neutral-100  w-[180px] rounded-bl-2xl rounded-br-2xl p-4" >
-                  <ul className="px-4 py-2 text-sm text-gray-700 ">
-                    
-                    <li className="pt-3 text-[16px] ">Log In</li>
-                    <Link to={"sign_up"}>
-                    <li className="pt-3 text-[16px]">Sign Up</li>
-                    </Link>
-                  </ul>
+              <Flex className={"gap-x-10 cursor-pointer relative"}>
+                <div className="relative">
+                  <div onClick={userbtn} className=" flex">
+                    <FaUser />
+                    <FaCaretDown />
+                    {showUser && (
+                      <div className="absolute top-[40px] left-[5%] bg-neutral-100  w-[180px] rounded-bl-2xl rounded-br-2xl p-4">
+                        <ul className="px-4 py-2 text-sm text-gray-700 ">
+                          <li className="pt-3 text-[16px] ">Log In</li>
+                          <Link to={"sign_up"}>
+                            <li className="pt-3 text-[16px]">Sign Up</li>
+                          </Link>
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                )}
                 </div>
-                
-                
-</div>
 
-                <FaShoppingCart />
+                <FaShoppingCart onClick={showcartbtn} />
               </Flex>
+              {showcart && (
+                <div className="w-[500px] h-screen absolute top-[80px] right-[5%] bg-amber-200">
+                  <ul>
+                    <li>fasdjkhfas</li>
+                   {data.map(item => (
+  <li >{item.title}</li>
+))}
+                  </ul>
+                </div>
+              )}
             </div>
           </Flex>
         </Container>

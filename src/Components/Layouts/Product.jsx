@@ -4,7 +4,20 @@ import Tag from '/src/Components/Tag'
 import Headding from '../Headding'
 import { FaHeart,FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
+import  {addtocart}  from '../../Slices/AddToCart';
+import { useDispatch } from 'react-redux';
+
 const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclassName}) => {
+        let dispatch=useDispatch()
+        let handelAddCart=()=>{
+               dispatch(addtocart({
+                title : ProductName,
+                img:productImg ,
+                price:ProductPrice,
+                quantity:1
+               }));
+                
+        }
   return (
    <>
    <div className={`${className}`}>
@@ -20,7 +33,7 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
 <Headding as={"p"} text={"Compare"} className={"text-menuText text-[16px]"}/>
 <TbRefresh/>
         </div>
-        <div className="flex gap-x-[15px] items-center justify-end pr-7.5">
+        <div className="flex gap-x-[15px] items-center justify-end pr-7.5" onClick={handelAddCart}>
 <Headding as={"p"} text={"Add to Cart"} className={"text-black text-[16px]"}/>
 <FaShoppingCart/>
         </div>
