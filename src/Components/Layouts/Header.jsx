@@ -10,6 +10,7 @@ import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { RxCross2 } from "react-icons/rx";
 
 const Header = () => {
   let [show, setshow] = useState(false);
@@ -157,10 +158,12 @@ const Header = () => {
                 <FaShoppingCart onClick={showcartbtn} />
               </Flex>
               {showcart && (
-                <div className="w-[900px] h-screen absolute shadow rounded-[5px] top-[80px] right-[5%] bg-neutral-100">
+                <div className="w-[900px] h-screen overflow-y-auto max-h-[500px]  shadow rounded-[5px] top-[80px] right-[5%] bg-neutral-100 fixed z-10">
                   <ul>
-                    <div className="w-[800px] pt-7 ">
-                      <ul className="flex text-center pb-4 ">
+                    <RxCross2 className="w-13 text-4xl cursor-pointer hover:bg-red-500 hover:text-white rounded-[5px] duration-300" onClick={showcartbtn}/>
+                    <div className="w-[800px] pt-7  ">
+                      
+                      <ul className="flex text-center  ">
                         <li className="w-[30%] text-black font-semibold text-[16px]">Product Name</li>
                         <li className="w-[20%] text-black font-semibold text-[16px]">Product price</li>
                         <li className="w-[20%] text-black font-semibold text-[16px]">Product Quantity</li>
@@ -168,18 +171,19 @@ const Header = () => {
                         <li className="w-[15%] text-black font-semibold text-[16px] ">Total</li>
 
                         </ul>
-                        <hr className="w-[900px] border border-neutral-300 " />
+                       
                    {data.map(item => (
-                    <div className="flex  text-center pt-7">
-                       <li className="w-[30%] text-black font-semibold text-[16px]">{item.title}</li>
-                        <li className="w-[20%] text-black font-semibold text-[16px]">{`$${item.price}`}</li>
-                        <li className="w-[20%] text-black font-semibold text-[16px]">{item.quantity}</li>
+<> <hr className="w-[900px] border border-neutral-300 " />
+                    <div className="flex  text-center  ">
+                       <li className="w-[30%] text-black font-semibold text-[16px] m-auto">{item.title}</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px] m-auto">{`$${item.price}`}</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px] m-auto">{item.quantity}</li>
                         <li className="w-[15%] text-black font-semibold text-[16px]"><img src={item.img}/></li>
-                        <li className="w-[15%] text-black font-semibold text-[16px]">{`$${item.price * item.quantity}`}</li>
+                        <li className="w-[15%] text-black font-semibold text-[16px] m-auto">{`$${(item.price * item.quantity).toFixed(2)}`}</li>
                         
                     </div>
-                    
-
+                 
+</>
 ))}
 </div>
                   </ul>

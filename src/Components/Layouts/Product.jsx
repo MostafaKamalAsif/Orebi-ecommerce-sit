@@ -20,7 +20,7 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
         }
   return (
    <>
-   <div className={`${className}`}>
+   <div className={`${className} cursor-pointer`}>
         <div className="relative group">
     <Image imgsrc={productImg} className={imgclassName}/>
     <Tag tagtext={tag} className={"absolute top-5 left-5"}/>
@@ -41,7 +41,7 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
     </div>
     <div className="flex items-center justify-between  pt-6 mb-10">
         <Headding as={"h3"} text={ProductName} className={"text-xl w-[79%]  font-bold text-[#262626] "}/>
-        <Headding as={"h3"} text={ProductPrice} className={" w-[19%] text-menuText "}/>
+        <Headding as={"h3"} text={`$${ProductPrice}`} className={" w-[19%] text-menuText "}/>
     </div>
     <Headding as={"h3"} text={text} className={" text-menuText"}/>
    </div>

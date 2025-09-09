@@ -36,7 +36,7 @@ alldatas()
           {
           alldata.slice(-4).map((iteam)=>
            <Link to={"/"}>
-        <Product productImg={iteam.img.formats.thumbnail.url}  tag={"New"} ProductName={iteam.title} ProductPrice={`$${iteam.price}`} /></Link>
+        <Product productImg={iteam.img.formats.thumbnail.url}  tag={"New"} ProductName={iteam.title} ProductPrice={`${iteam.price}`} /></Link>
         
 )}
         
