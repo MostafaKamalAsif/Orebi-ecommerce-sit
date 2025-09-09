@@ -20,6 +20,8 @@ addtocart: (state, action) => {
   } else {
     state.value.push({ ...action.payload, quantity: 1 });
   }
+
+  
 }
 
   },

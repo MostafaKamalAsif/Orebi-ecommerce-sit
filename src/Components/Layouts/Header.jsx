@@ -158,23 +158,23 @@ const Header = () => {
                 <FaShoppingCart onClick={showcartbtn} />
               </Flex>
               {showcart && (
-                <div className="w-[900px] h-screen overflow-y-auto max-h-[500px]  shadow rounded-[5px] top-[80px] right-[5%] bg-neutral-100 fixed z-10">
+                <div className="w-[900px] h-screen overflow-y-auto max-h-[500px]  shadow rounded-[5px] top-[80px] right-[5%]  fixed z-10">
                   <ul>
-                    <RxCross2 className="w-13 text-4xl cursor-pointer hover:bg-red-500 hover:text-white rounded-[5px] duration-300" onClick={showcartbtn}/>
-                    <div className="w-[800px] pt-7  ">
+                    <RxCross2 className="w-13 text-4xl cursor-pointer hover:bg-red-500 fixed hover:text-white rounded-[5px] duration-300" onClick={showcartbtn}/>
+                    <div className="w-[900px] py-8 bg-[#F5F7F7]  ">
                       
                       <ul className="flex text-center  ">
-                        <li className="w-[30%] text-black font-semibold text-[16px]">Product Name</li>
-                        <li className="w-[20%] text-black font-semibold text-[16px]">Product price</li>
-                        <li className="w-[20%] text-black font-semibold text-[16px]">Product Quantity</li>
-                        <li className="w-[15%] text-black font-semibold text-[16px]">Product Image</li>
-                        <li className="w-[15%] text-black font-semibold text-[16px] ">Total</li>
+                        <li className="w-[30%] text-black font-bold text-[16px]">Product Name</li>
+                        <li className="w-[20%] text-black font-bold text-[16px]">Product price</li>
+                        <li className="w-[20%] text-black font-bold text-[16px]">Product Quantity</li>
+                        <li className="w-[15%] text-black font-bold text-[16px]">Product Image</li>
+                        <li className="w-[15%] text-black font-bold text-[16px] ">Total</li>
 
                         </ul>
-                       
+                       </div>
                    {data.map(item => (
 <> <hr className="w-[900px] border border-neutral-300 " />
-                    <div className="flex  text-center  ">
+                    <div className="flex  text-center bg-white ">
                        <li className="w-[30%] text-black font-semibold text-[16px] m-auto">{item.title}</li>
                         <li className="w-[20%] text-black font-semibold text-[16px] m-auto">{`$${item.price}`}</li>
                         <li className="w-[20%] text-black font-semibold text-[16px] m-auto">{item.quantity}</li>
@@ -182,10 +182,12 @@ const Header = () => {
                         <li className="w-[15%] text-black font-semibold text-[16px] m-auto">{`$${(item.price * item.quantity).toFixed(2)}`}</li>
                         
                     </div>
+                   
                  
 </>
 ))}
-</div>
+
+
                   </ul>
                   <hr className="w-[900px] border border-neutral-300 " />
                 </div>
