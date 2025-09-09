@@ -39,9 +39,9 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
         </div>
     </div>
     </div>
-    <div className="flex items-center justify-between pt-6 mb-10">
-        <Headding as={"h3"} text={ProductName} className={"text-xl font-bold text-[#262626] "}/>
-        <Headding as={"h3"} text={ProductPrice} className={" text-menuText "}/>
+    <div className="flex items-center justify-between  pt-6 mb-10">
+        <Headding as={"h3"} text={ProductName} className={"text-xl w-[79%]  font-bold text-[#262626] "}/>
+        <Headding as={"h3"} text={ProductPrice} className={" w-[19%] text-menuText "}/>
     </div>
     <Headding as={"h3"} text={text} className={" text-menuText"}/>
    </div>

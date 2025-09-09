@@ -16,6 +16,7 @@ const Header = () => {
   let [showUser, setShowUser] = useState(false);
   let [showcart, setShowcart] = useState(false);
   let data = useSelector((state) => state.addcart.value);
+  
 
   const showbtn = () => {
     setshow(!show);
@@ -156,13 +157,33 @@ const Header = () => {
                 <FaShoppingCart onClick={showcartbtn} />
               </Flex>
               {showcart && (
-                <div className="w-[500px] h-screen absolute top-[80px] right-[5%] bg-amber-200">
+                <div className="w-[900px] h-screen absolute shadow rounded-[5px] top-[80px] right-[5%] bg-neutral-100">
                   <ul>
-                    <li>fasdjkhfas</li>
+                    <div className="w-[800px] pt-7 ">
+                      <ul className="flex text-center pb-4 ">
+                        <li className="w-[30%] text-black font-semibold text-[16px]">Product Name</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px]">Product price</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px]">Product Quantity</li>
+                        <li className="w-[15%] text-black font-semibold text-[16px]">Product Image</li>
+                        <li className="w-[15%] text-black font-semibold text-[16px] ">Total</li>
+
+                        </ul>
+                        <hr className="w-[900px] border border-neutral-300 " />
                    {data.map(item => (
-  <li >{item.title}</li>
+                    <div className="flex  text-center pt-7">
+                       <li className="w-[30%] text-black font-semibold text-[16px]">{item.title}</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px]">{`$${item.price}`}</li>
+                        <li className="w-[20%] text-black font-semibold text-[16px]">{item.quantity}</li>
+                        <li className="w-[15%] text-black font-semibold text-[16px]"><img src={item.img}/></li>
+                        <li className="w-[15%] text-black font-semibold text-[16px]">{`$${item.price * item.quantity}`}</li>
+                        
+                    </div>
+                    
+
 ))}
+</div>
                   </ul>
+                  <hr className="w-[900px] border border-neutral-300 " />
                 </div>
               )}
             </div>

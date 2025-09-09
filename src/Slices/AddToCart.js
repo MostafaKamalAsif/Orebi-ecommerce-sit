@@ -10,22 +10,18 @@ export const AddToCart = createSlice({
     value: [],
   },
   reducers: {
-    addtocart: (state,action) => {
-         
-      state.value.push(action.payload);
+addtocart: (state, action) => {
+  let existingItem = state.value.find(
+    (item) => item.title === action.payload.title
+  );
 
-      let alldata=state.value.find(item=>item.title===action.payload.title)
-        if (alldata) {
-            alldata.quantity += 1;
-        }
-      else{
-        state.value.push({...action.payload,quantity:1})
-      }
-      
-      
-      
-   
-},
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    state.value.push({ ...action.payload, quantity: 1 });
+  }
+}
+
   },
 })
 

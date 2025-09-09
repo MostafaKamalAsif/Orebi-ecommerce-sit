@@ -56,7 +56,7 @@ alldatas()
    
       <div className="px-5">
         <Link to={"/"}>
-        <Product productImg={iteam.img.formats.thumbnail.url }  tag={"10%"} ProductName={iteam.title} ProductPrice={`$${iteam.price}`}/></Link>
+        <Product productImg={iteam.img.formats.thumbnail.url }  tag={"10%"} ProductName={iteam.title} ProductPrice={`$ ${iteam.price}`}/></Link>
       </div>
        )
   }
