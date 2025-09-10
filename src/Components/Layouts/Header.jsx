@@ -68,8 +68,9 @@ return()=>{
           <Flex className={"justify-between"}>
             <div className="w-[40%]">
               <Link to={"/"}>
-                <Image imgsrc={logo} />
+                <Image imgsrc={logo} className={''} />
               </Link>
+             
             </div>
             <div className="w-[60%]">
               <ul className="flex text-menuText text-14 gap-x-5">
@@ -181,12 +182,13 @@ return()=>{
                             <MdLogin className="text-2xl "/>
                             <li className=" text-[16px] ">Log In</li>
                           </div>
-                          <div className="flex items-center gap-x-3 py-3 px-5 cursor-pointer hover:bg-neutral-300 hover:rounded-[5px] duration-100 font-semibold">
+                          
+                            <Link to={"sign_up"} className="flex items-center gap-x-3 py-3 px-4 cursor-pointer hover:bg-neutral-300 hover:rounded-[5px] duration-100 font-semibold">
                             <FaUserPlus className="text-2xl "/>
-                            <Link to={"sign_up"}>
+                            
                             <li className="  text-[16px] ">Sign Up</li>
                           </Link>
-                          </div>
+                          
                           
                         </ul>
                       </div>
