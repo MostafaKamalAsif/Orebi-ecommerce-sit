@@ -8,16 +8,49 @@ import { Link, useLocation } from "react-router-dom";
 import Headding from "../Headding";
 import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
+import { useEffect } from "react";
+import { MdLogin } from "react-icons/md";
+import { FaUserPlus } from "react-icons/fa";
 
 const Header = () => {
   let [show, setshow] = useState(false);
   let [showUser, setShowUser] = useState(false);
   let [showcart, setShowcart] = useState(false);
   let data = useSelector((state) => state.addcart.value);
-
+  // close Catogory in Outside click start
+  const catgoryRef=useRef()
+  useEffect(()=>{
+    function closeCatogoryOutside(event) {
+      if (catgoryRef.current && !catgoryRef.current.contains(event.target)) {
+      setshow(false)
+    }
+    }
+    
+document.addEventListener("click",closeCatogoryOutside)
+return()=>{
+  document.removeEventListener("click", closeCatogoryOutside)
+}
+  },[])
+ // close Catogory in Outside click end
+ 
+  // close user in Outside click start
+  const userRef=useRef()
+  useEffect(()=>{
+    function closeuserOutside(event) {
+      if (userRef.current && !userRef.current.contains(event.target)) {
+      setShowUser(false)
+    }
+    }
+    
+document.addEventListener("click",closeuserOutside)
+return()=>{
+  document.removeEventListener("click", closeuserOutside)
+}
+  },[])
+ // close Catogory in Outside click end
   const showbtn = () => {
     setshow(!show);
   };
@@ -103,7 +136,7 @@ const Header = () => {
       <div className="py-[25px] bg-[#F5F5F3] relative">
         <Container>
           <Flex className={"justify-between"}>
-            <div onClick={showbtn} className="">
+            <div onClick={showbtn} ref={catgoryRef} className="">
               <Flex className={"gap-x-2.5 cursor-pointer"}>
                 <Image imgsrc={menu} className={""} />
                 <Headding
@@ -114,14 +147,14 @@ const Header = () => {
               </Flex>
 
               {show && (
-                <div className="absolute top-[80%] left-[6%]  bg-neutral-100  w-[200px] rounded-2xl p-4">
-                  <ul className="px-4 py-2 text-sm text-gray-700  ">
-                    <li className="py-3 text-[16px]">Accesories</li>
-                    <li className="py-3 text-[16px]">Furniture</li>
-                    <li className="py-3 text-[16px]">Electronics</li>
-                    <li className="py-3 text-[16px]">Clothes</li>
-                    <li className="py-3 text-[16px]">Bags</li>
-                    <li className="py-3 text-[16px]">Home appliances</li>
+                <div className="absolute top-[80%] left-[6%] shadow bg-neutral-100  w-[200px] rounded-2xl ">
+                  <ul className="   text-sm text-gray-700  ">
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Accesories</li>
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Furniture</li>
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Electronics</li>
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Clothes</li>
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Bags</li>
+                    <li className="py-3 px-5 cursor-pointer text-[16px] hover:bg-neutral-300 hover:rounded-[5px] duration-100 ">Home appliances</li>
                   </ul>
                 </div>
               )}
@@ -138,23 +171,30 @@ const Header = () => {
             <div className="">
               <Flex className={"gap-x-10 cursor-pointer relative"}>
                 <div className="relative">
-                  <div onClick={userbtn} className=" flex">
+                  <div onClick={userbtn} ref={userRef} className=" flex">
                     <FaUser />
                     <FaCaretDown />
                     {showUser && (
-                      <div className="absolute top-[40px] left-[5%] bg-neutral-100  w-[180px] rounded-bl-2xl rounded-br-2xl p-4">
-                        <ul className="px-4 py-2 text-sm text-gray-700 ">
-                          <li className="pt-3 text-[16px] ">Log In</li>
-                          <Link to={"sign_up"}>
-                            <li className="pt-3 text-[16px]">Sign Up</li>
+                      <div className="absolute top-[40px] left-[5%] bg-neutral-100  w-[150px] shadow rounded-2xl ">
+                        <ul className=" text-sm text-gray-700 ">
+                          <div className="py-3 px-3 gap-x-3 flex items-center cursor-pointer hover:bg-neutral-300 hover:rounded-[5px] duration-100 font-semibold">
+                            <MdLogin className="text-2xl "/>
+                            <li className=" text-[16px] ">Log In</li>
+                          </div>
+                          <div className="flex items-center gap-x-3 py-3 px-5 cursor-pointer hover:bg-neutral-300 hover:rounded-[5px] duration-100 font-semibold">
+                            <FaUserPlus className="text-2xl "/>
+                            <Link to={"sign_up"}>
+                            <li className="  text-[16px] ">Sign Up</li>
                           </Link>
+                          </div>
+                          
                         </ul>
                       </div>
                     )}
                   </div>
                 </div>
 
-                <FaShoppingCart onClick={showcartbtn} />
+                <FaShoppingCart onClick={showcartbtn}  />
               </Flex>
               {showcart && (
                 <div className="w-[900px] h-screen overflow-y-auto max-h-[500px] bg-white  shadow rounded-[5px] top-[80px] right-[5%]  fixed z-10">
