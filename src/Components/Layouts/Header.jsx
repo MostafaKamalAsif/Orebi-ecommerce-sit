@@ -226,7 +226,7 @@ return()=>{
                     </div>
                     {data.map((item) => (
                       <>
-                        {" "}
+                        
                         <hr className="w-full border border-neutral-300 " />
                         <div className="flex  text-center bg-white ">
                           <li className="w-[30%] text-black font-semibold text-[16px] m-auto">
@@ -242,9 +242,21 @@ return()=>{
                           <li className="w-[15%] text-black font-semibold text-[16px] m-auto">{`$${(
                             item.price * item.quantity
                           ).toFixed(2)}`}</li>
+                          
                         </div>
+                       
                       </>
                     ))}
+                    {/* Subtotal row */}
+<hr className="w-full border border-neutral-300 " />
+<div className="flex justify-end p-4 bg-gray-100">
+  <span className="text-lg font-bold">
+    Subtotal: $
+    {data
+      .reduce((acc, item) => acc + item.price * item.quantity, 0)
+      .toFixed(2)}
+  </span>
+</div>
                   </ul>
                   <hr className="w-full border border-neutral-300 " />
                 </div>
