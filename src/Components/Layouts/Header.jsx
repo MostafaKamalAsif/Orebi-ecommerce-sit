@@ -3,23 +3,25 @@ import Flex from "../Flex";
 import Image from "../Image";
 import logo from "/src/assets/logo.png";
 import menu from "/src/assets/icon.svg";
-import user from "/src/assets/user.png";
 import { Link, useLocation } from "react-router-dom";
 import Headding from "../Headding";
 import { IoSearch } from "react-icons/io5";
 import { FaShoppingCart, FaUser, FaCaretDown } from "react-icons/fa";
 import { useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
 import { useEffect } from "react";
 import { MdLogin } from "react-icons/md";
 import { FaUserPlus } from "react-icons/fa";
+import { decrement, increment } from "../../Slices/AddToCart";
+
 
 const Header = () => {
   let [show, setshow] = useState(false);
   let [showUser, setShowUser] = useState(false);
   let [showcart, setShowcart] = useState(false);
   let data = useSelector((state) => state.addcart.value);
+  const dispatchcounter = useDispatch();
   // close Catogory in Outside click start
   const catgoryRef=useRef()
   useEffect(()=>{
@@ -233,8 +235,23 @@ return()=>{
                             {item.title}
                           </li>
                           <li className="w-[20%] text-black font-semibold text-[16px] m-auto">{`$${item.price}`}</li>
-                          <li className="w-[20%] text-black font-semibold text-[16px] m-auto">
-                            {item.quantity}
+                          <li className="w-[20%] text-black font-semibold text-[16px] m-auto space-x-2">
+                           <button
+  onClick={() => dispatchcounter(increment(item))}
+  className="border py-1.5 px-2.5   cursor-pointer"
+>
+  +
+</button>
+
+<span >{item.quantity}</span>
+
+<button
+  onClick={() => dispatchcounter(decrement(item))}
+  className="border py-1.5 px-2.5  cursor-pointer"
+>
+  -
+</button>
+
                           </li>
                           <li className="w-[15%] text-black font-semibold text-[16px]">
                             <img src={item.img} />
