@@ -3,7 +3,8 @@ import Container from '../Container'
 import axios from 'axios'
 import Product from '../Layouts/Product'
 import Flex from '../Flex'
-
+import { MdOutlineNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 
 const Shop = () => {
 const page_size=8
@@ -49,23 +50,14 @@ const gotoPrevPage=()=>{
      <>
     <div className="">
       <Container>
-           <div className="flex  justify-center ">
-            <span className='mr-2 border px-2' onClick={gotoPrevPage}>Prev</span>
-            {[...Array(onpageproduct).keys()].map((page,i)=>
-            <>
            
-            <span className={`px-2 w-[25px] border mx-1 cursor-pointer  ${currantpage===page? 'bg-neutral-300  text-white ':""}` } onClick={()=>{pagechange(page)}} key={i}>{page+1}</span>
-             
-           </> )}
-           <span className= 'ml-2 border px-2' onClick={gotoNextPage}>Next </span>
-          </div>
          <Flex className={"  gap-x-[15px] gap-y-10 -mr-[80px] flex-wrap   "}>
    
           {curreantproduct.map((item,x)=>
             <Product
             key={x}
                 productImg={item.img?.formats?.thumbnail?.url || item.image}
-               className={'w-[23%]  px-4  h-[390px]  flex flex-col '}
+               className={'w-[23%]  px-4 pt-3  h-[390px]  flex flex-col '}
                imgclassName={!item.img? ' h-[270px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50':""}
                 tag={item.image?"New":"10%"}
                 ProductName={ item.title }
@@ -75,7 +67,16 @@ const gotoPrevPage=()=>{
           )}
           </Flex>
 
-         
+         <div className="flex items-center justify-center m-auto py-7 gap-x-4 ">
+            <button disabled={currantpage===0} className={` w-[25px] cursor-pointer ${currantpage===0?"text-black/50 ":""}` } onClick={gotoPrevPage}><GrFormPrevious className='text-2xl ' /></button>
+            {[...Array(onpageproduct).keys()].map((page,i)=>
+            <>
+           
+            <span className={`px-2    w-[25px] border mx-1 cursor-pointer  ${currantpage===page? 'bg-neutral-300 border-2 border-neutral-300 text-white ':""}` } onClick={()=>{pagechange(page)}} key={i}>{page+1}</span>
+             
+           </> )}
+           <button disabled={currantpage===onpageproduct-1} className={` w-[25px] cursor-pointer ${currantpage===onpageproduct-1?"text-black/50 ":""}` }  onClick={gotoNextPage}><MdOutlineNavigateNext className='text-2xl '/> </button>
+          </div>
       </Container>
     </div>
     </>
