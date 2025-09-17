@@ -11,6 +11,7 @@ export const AddToCart = createSlice({
   },
   reducers: {
 addtocart: (state, action) => {
+  
   let existingItem = state.value.find(
     (item) => item.title === action.payload.title
   );
@@ -39,9 +40,14 @@ addtocart: (state, action) => {
       let existingItem = state.value.find(
         (item) => item.title === action.payload.title
       );
-      if (existingItem && existingItem.quantity > 0) {
+      if (existingItem && existingItem.quantity > 1) {
         existingItem.quantity -= 1;
       } 
+      else{
+        state.value=state.value.filter((item)=>{
+          item.title!==action.payload.title
+        })
+      }
     }
 
   },

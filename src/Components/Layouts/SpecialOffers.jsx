@@ -13,8 +13,8 @@ useEffect(()=>{
 async function alldatas() {
   let data=await axios.get("https://fakestoreapi.com/products/")
    setalldata(data.data)
-  
-  
+
+ 
 }
 alldatas()
 },[])

@@ -281,12 +281,10 @@ const Header = () => {
                     <div className="flex justify-end p-4 bg-gray-100">
                       <span className="text-lg font-bold">
                         Subtotal: $
-                        {data
-                          .reduce(
-                            (acc, item) => acc + item.price * item.quantity,
-                            0
-                          )
-                          .toFixed(2)}
+                        {data.reduce((acc,item)=>{
+                        acc+=item.price*item.quantity
+                        return acc
+                        },0 ).toFixed(2)}
                       </span>
                     </div>
                   </ul>
