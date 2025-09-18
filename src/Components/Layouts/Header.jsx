@@ -137,7 +137,7 @@ const Header = () => {
       <div className="py-[25px] bg-[#F5F5F3] relative">
         <Container>
           <Flex className={"justify-between"}>
-            <div onClick={showbtn} ref={catgoryRef} className="">
+            <div onClick={showbtn}  className="">
               <Flex className={"gap-x-2.5 cursor-pointer"}>
                 <Image imgsrc={menu} className={""} />
                 <Headding
