@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { MdLogin } from "react-icons/md";
 import { FaUserPlus } from "react-icons/fa";
 import { decrement, increment } from "../../Slices/AddToCart";
+import SmDevice from "./SmDevice";
 
 const Header = () => {
   let [show, setshow] = useState(false);
@@ -64,7 +65,7 @@ const Header = () => {
   const location = useLocation();
   return (
     <>
-      <div className="py-[30px] bg-white">
+      <div className="hidden md:block py-[30px] bg-white">
         <Container>
           <Flex className={"justify-between"}>
             <div className="w-[40%]">
@@ -72,8 +73,8 @@ const Header = () => {
                 <Image imgsrc={logo} className={""} />
               </Link>
             </div>
-            <div className="w-[60%]">
-              <ul className="flex text-menuText text-14 gap-x-5">
+            <div className=" w-[60%]">
+              <ul className="flex  text-menuText text-14 gap-x-5">
                 <Link
                   to={"/"}
                   className={`${
@@ -129,11 +130,14 @@ const Header = () => {
                   <li className="hover:text-menuHover ">Journal</li>
                 </Link>
               </ul>
+             
             </div>
+             
+              
           </Flex>
         </Container>
       </div>
-
+    <SmDevice/>
       <div className="py-[25px] bg-[#F5F5F3] relative">
         <Container>
           <Flex className={"justify-between"}>
