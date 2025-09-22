@@ -15,13 +15,37 @@ import { MdLogin } from "react-icons/md";
 import { FaUserPlus } from "react-icons/fa";
 import { decrement, increment } from "../../Slices/AddToCart";
 import SmDevice from "./SmDevice";
+import axios from "axios";
 
 const Header = () => {
+  let[input, setinput]=useState("")
+  let[searchitem, setsearchitem]=useState([])
+  let[barshow, setbarshow]=useState(false)
+
   let [show, setshow] = useState(false);
   let [showUser, setShowUser] = useState(false);
   let [showcart, setShowcart] = useState(false);
   let data = useSelector((state) => state.addcart.value);
   const dispatchcounter = useDispatch();
+  //search item api
+  useEffect(()=>{
+    async function allproduct() {
+      let myapi=await axios.get("https://mostafakamalasif.github.io/Orebi-API/index.json?q=" +input)
+      let fakeapi=await axios.get("https://fakestoreapi.com/products/?q=" +input)
+      let all=[...myapi.data.data,...fakeapi.data]
+
+   
+   
+    // Filter locally based on input
+    let filtered = all.filter((item) =>
+      item.title.toLowerCase().includes(input.toLowerCase())
+    );
+
+    setsearchitem(filtered);
+   }
+
+    allproduct()
+  },[input])
   // close Catogory in Outside click start
   const catgoryRef = useRef();
   useEffect(() => {
@@ -182,10 +206,28 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search Products"
-                className="bg-white text-[#C4C4C4] text-[11px] md:text-[14px] w-[250px] md:w-[601px] py-2 md:py-4 pl-5.5"
+                className="bg-white  text-[11px] md:text-[14px] w-[250px] text-black md:w-[601px] py-2 md:py-4 pl-5.5"
+                value={input}  onChange={(e)=> setinput(e.target.value) }  onFocus={()=> setbarshow(true)} 
+                onBlur={()=> setbarshow(false)}
+        
+                
               />
+              
               <IoSearch className="absolute right-[3%] top-[50%] -translate-y-1/2 cursor-pointer" />
+              { barshow &&(
+               <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll ">
+              {searchitem.map((item)=>
+              <>
+              <ul className="flex items-center gap-3 py-1 hover:bg-neutral-200 duration-150 cursor-pointer">
+              <li className="w-[7%] "><img src={item.img?.formats?.thumbnail?.url || item.image}  /></li>
+              <li className="text-black " >{item.title}</li>
+              </ul>
+              </>
+              )}
+              </div>
+             ) }
             </div>
+           
             <div className="">
               <Flex className={"gap-x-10 cursor-pointer "}>
                 <div className="">
