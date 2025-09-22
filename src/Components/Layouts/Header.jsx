@@ -19,8 +19,8 @@ import axios from "axios";
 import Autosearch from "./Autosearch";
 
 const Header = () => {
- 
-
+   let [input, setinput] = useState("");
+let [barshow, setbarshow] = useState(false);
   let [show, setshow] = useState(false);
   let [showUser, setShowUser] = useState(false);
   let [showcart, setShowcart] = useState(false);
@@ -195,7 +195,7 @@ const Header = () => {
               />
               
               <IoSearch className="absolute right-[3%] top-[50%] -translate-y-1/2 cursor-pointer" />
-             <Autosearch/>
+             <Autosearch input={input} setinput={setinput} barshow={barshow} setbarshow={setbarshow}/>
             </div>
            
             <div className="">

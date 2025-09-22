@@ -1,44 +1,70 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const Autosearch = () => {
-     let[input, setinput]=useState("")
-      let[searchitem, setsearchitem]=useState([])
-      let[barshow, setbarshow]=useState(false)
-      //search item api
-        useEffect(()=>{
-          async function allproduct() {
-            let myapi=await axios.get("https://mostafakamalasif.github.io/Orebi-API/index.json?q=" +input)
-            let fakeapi=await axios.get("https://fakestoreapi.com/products/?q=" +input)
-            let all=[...myapi.data.data,...fakeapi.data]
-      
-         
-         
+const Autosearch = ({input,setinput,barshow, setbarshow}) => {
+
+  let [searchitem, setsearchitem] = useState([]);
+  let[cache,setcache]=useState({})
+  
+  //search item api
+  useEffect(() => {
+    
+    const timer = setTimeout(() => {
+      async function allproduct() {
+    if (cache[input]) {
+        setsearchitem(cache[input])
+        return; 
+    }
+       
+        try {
+          let myapi = await axios.get(
+            "https://mostafakamalasif.github.io/Orebi-API/index.json" 
+          );
+          let fakeapi = await axios.get(
+            "https://fakestoreapi.com/products/" 
+          );
+          let all = [...myapi.data.data, ...fakeapi.data];
+
           // Filter locally based on input
           let filtered = all.filter((item) =>
-            item.title.toLowerCase().includes(input.toLowerCase())
-          );
-      
+           
+               item.title.toLowerCase().includes(input.toLowerCase()) 
+         
+            
+          )
+  
+          
+
           setsearchitem(filtered);
-         }
-      
-          allproduct()
-        },[input])
+        } catch (error) {
+             console.error(error);
+        }
+      }
+
+      allproduct();
+    }, 350);
+    return(()=> 
+    clearTimeout(timer)
+    )
+  }, [input]);
   return (
     <>
-     { barshow &&(
-               <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll ">
-              {searchitem.map((item)=>
-              <>
+      {barshow && (
+        <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll ">
+          {searchitem.map((item) => (
+            <>
               <ul className="flex items-center gap-3 py-1 hover:bg-neutral-200 duration-150 cursor-pointer">
-              <li className="w-[7%] "><img src={item.img?.formats?.thumbnail?.url || item.image}  /></li>
-              <li className="text-black " >{item.title}</li>
+                <li className="w-[7%] ">
+                  <img src={item.img?.formats?.thumbnail?.url || item.image} />
+                </li>
+                <li className="text-black ">{item.title}</li>
               </ul>
-              </>
-              )}
-              </div>
-             ) }
+            </>
+          ))}
+        </div>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Autosearch
+export default Autosearch;
