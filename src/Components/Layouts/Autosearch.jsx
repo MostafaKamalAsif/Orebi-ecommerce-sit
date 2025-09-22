@@ -8,13 +8,15 @@ const Autosearch = ({input,setinput,barshow, setbarshow}) => {
   
   //search item api
   useEffect(() => {
-    
+  
     const timer = setTimeout(() => {
       async function allproduct() {
+        
     if (cache[input]) {
         setsearchitem(cache[input])
         return; 
     }
+       console.log("call " +input);
        
         try {
           let myapi = await axios.get(
@@ -24,7 +26,7 @@ const Autosearch = ({input,setinput,barshow, setbarshow}) => {
             "https://fakestoreapi.com/products/" 
           );
           let all = [...myapi.data.data, ...fakeapi.data];
-
+           
           // Filter locally based on input
           let filtered = all.filter((item) =>
            
@@ -32,10 +34,8 @@ const Autosearch = ({input,setinput,barshow, setbarshow}) => {
          
             
           )
-  
-          
-
           setsearchitem(filtered);
+          setcache((prev)=>({...prev,[input]:filtered}))
         } catch (error) {
              console.error(error);
         }
@@ -53,7 +53,7 @@ const Autosearch = ({input,setinput,barshow, setbarshow}) => {
         <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll ">
           {searchitem.map((item) => (
             <>
-              <ul className="flex items-center gap-3 py-1 hover:bg-neutral-200 duration-150 cursor-pointer">
+              <ul className="flex items-center gap-3 py-1 px-3 hover:bg-neutral-200 duration-150 cursor-pointer">
                 <li className="w-[7%] ">
                   <img src={item.img?.formats?.thumbnail?.url || item.image} />
                 </li>
