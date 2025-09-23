@@ -50,7 +50,7 @@ const Autosearch = ({input,setinput,barshow, setbarshow}) => {
   return (
     <>
       {barshow && (
-        <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll ">
+        <div className="absolute top-[55px]  w-601px max-h-[200px] bg-white overflow-x-scroll z-11">
           {searchitem.map((item) => (
             <>
               <ul className="flex items-center gap-3 py-1 px-3 hover:bg-neutral-200 duration-150 cursor-pointer">
