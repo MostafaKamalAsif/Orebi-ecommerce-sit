@@ -11,6 +11,7 @@ import Journal from './Components/Pages/Journal';
 import Error from './Components/Pages/Error';
 import SignUp from './Components/Pages/SignUp';
 
+
 function App() {
   
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="contacts" element={<Contacts/>}/>
         <Route path="journal" element={<Journal/>}/>
         <Route path="sign_up" element={<SignUp/>}/>
+    
 
         <Route path='*' element={<Error/>}/>
       </Route>
