@@ -192,7 +192,7 @@ const Header = () => {
                 </div>
 
                 {showUser && (
-                  <div className="absolute top-[70px] right-[20px] md:right-[50px] bg-neutral-100 w-[120px] md:w-[150px] shadow rounded-2xl z-20">
+                  <div className="absolute top-[70px] -right-[20px] md:right-[50px] bg-neutral-100 w-[120px] md:w-[150px] shadow rounded-2xl z-20">
                     <ul>
                       {/* Log In button */}
                       <div
