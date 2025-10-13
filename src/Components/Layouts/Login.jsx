@@ -1,5 +1,5 @@
-
-import { Button } from "@/components/ui/Button";
+import React from 'react'
+import { Button } from "/src/Components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,9 +7,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+} from "/src/Components/ui/card.jsx";
+import { Input } from "/src/Components/ui/input";
+import { Label } from "/src/Components/ui/label";
 
 const Login = () => {
   return (
