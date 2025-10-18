@@ -22,9 +22,9 @@ const Contacts = () => {
               className={"cursor-pointer"}
             />
           </Flex>
-              <Headding as={"h3"} text={"Fill up a Form"}  className={'font-bold text-[#262626] text-2xl pt-[100px] pb-11'}inputclass={" py-4"}/>
-              <Input title={"Name"} className={"font-bold text-[16px]"} type={"text"} placeholder={"Your name here"}inputclass={" py-4"}/>
-              <Input title={"Email"} className={"font-bold text-[16px] pt-5"} type={"email"} placeholder={"Your email here"} inputclass={" py-4"}/>
+              <Headding as={"h3"} text={"Fill up a Form"}  className={'font-bold text-[#262626] text-2xl pt-[100px] pb-11'}/>
+              <Input title={"Name"} className={"font-bold text-[16px]"} type={"text"} placeholder={"Your name here"}/>
+              <Input title={"Email"} className={"font-bold text-[16px] pt-5"} type={"email"} placeholder={"Your email here"} />
               <Input title={"Message"} className={"font-bold text-[16px] pt-5 "} type={"text"} placeholder={"Your message here"} inputclass={"h-[138px] -mt-7 "}/>
               <Button className={"mt-7.5 py-5 px-[85px]"}>Post</Button>
               
