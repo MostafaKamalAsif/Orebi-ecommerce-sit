@@ -205,16 +205,16 @@ const Header = () => {
 
                   {/* Cart Items */}
                   {cartData.map((item) => (
-                    <div key={item.title} className="relative">
+                    <div key={item.title} >
                       <hr className="w-full border border-neutral-300" />
                       <ul className="flex items-center text-start md:text-center bg-white relative py-2">
 
                         {/* Cross button for each item */}
-                        <RxCross2
-                          className="absolute left-2 top-1/2 -translate-y-1/2 text-black cursor-pointer hover:text-red-600 text-2xl"
+                       
+                         <li> <RxCross2
+                          className=" text-black cursor-pointer hover:text-red-600 text-2xl"
                           onClick={() => dispatch(removeItem(item))}
-                        />
-
+                        /></li>
                         <li className="w-[30%] font-semibold text-[11px] md:text-[16px]">{item.title}</li>
                         <li className="w-[20%] font-semibold text-[11px] md:text-[16px]">{`$${item.price}`}</li>
                         <li className="w-[20%] font-semibold text-[11px] md:text-[16px] flex justify-center items-center gap-2">
@@ -237,9 +237,11 @@ const Header = () => {
                     <span className="text-[14px] md:text-lg font-bold">
                       Subtotal: ${cartData.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
                     </span>
+                    <Link to={'/checkout'}>
                     <button className="bg-black text-white px-6 py-2 rounded-md text-[13px] md:text-[16px] hover:bg-neutral-700 transition-all">
-                      BUY NOW
+                      Proceed to Checkout
                     </button>
+                    </Link>
                   </div>
                 </div>
               )}

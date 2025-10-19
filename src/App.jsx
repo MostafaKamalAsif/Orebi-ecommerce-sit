@@ -10,6 +10,7 @@ import Contacts from './Components/Pages/Contacts';
 import Journal from './Components/Pages/Journal';
 import Error from './Components/Pages/Error';
 import SignUp from './Components/Pages/SignUp';
+import Checkout from './Components/Pages/Checkout';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="contacts" element={<Contacts/>}/>
         <Route path="journal" element={<Journal/>}/>
         <Route path="sign_up" element={<SignUp/>}/>
+        <Route path="checkout" element={<Checkout/>}/>
     
 
         <Route path='*' element={<Error/>}/>
