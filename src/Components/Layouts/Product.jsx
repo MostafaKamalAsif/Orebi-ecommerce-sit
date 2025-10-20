@@ -33,7 +33,7 @@ const Product = ({productImg,tag,ProductName,ProductPrice,text,className,imgclas
       
   return (
    <>
-   <div className={`${className} cursor-pointer`}>
+   <div className={` ${className} cursor-pointer`}>
         <div className="relative group">
     <Image imgsrc={productImg} className={imgclassName}/>
     <Tag tagtext={tag} className={"absolute top-5 left-5"}/>

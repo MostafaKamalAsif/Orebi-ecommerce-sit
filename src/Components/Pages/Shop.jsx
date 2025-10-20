@@ -51,14 +51,14 @@ const gotoPrevPage=()=>{
     <div className="">
       <Container>
            
-         <Flex className={"  gap-x-[15px] gap-y-10 -mr-[80px] flex-wrap   "}>
+         <Flex className={"  gap-x-[15px]  -mr-[80px] flex-wrap pt-10  "}>
    
           {curreantproduct.map((item,x)=>
             <Product
             key={x}
                 productImg={item.img?.formats?.thumbnail?.url || item.image}
-               className={'w-[23%]  px-4 pt-3  h-[390px]  flex flex-col '}
-               imgclassName={!item.img? ' h-[270px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50':""}
+               className={'w-[23%]  px-4   h-[390px]  flex flex-col '}
+               imgclassName={!item.img? ' h-[300px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50':""}
                 tag={item.image?"New":"10%"}
                 ProductName={ item.title }
                ProductPrice={item.price}

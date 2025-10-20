@@ -7,7 +7,7 @@ const Ads_2 = () => {
   return (
     <>
     <Container className={"py-[128px]"}>
-        <Link to={"/"}>
+        <Link to={"/shop"}>
      <Image imgsrc={Adstwo} className={"w-full"}/></Link>
     </Container>
     </>

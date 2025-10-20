@@ -36,7 +36,7 @@ alldatas()
               <Product
                 productImg={iteam.image}
                className={'w-[23%]  px-4  h-[390px]  flex flex-col '}
-               imgclassName={' h-[270px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50'}
+               imgclassName={' h-[300px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50'}
                 tag={"New"}
                 ProductName={iteam.title}
                 ProductPrice={`${iteam.price}`}

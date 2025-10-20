@@ -14,14 +14,14 @@ const Ads = () => {
         <Container>
             <Flex className={'justify-between'}>
                 <div className="w-[48.5%] ">
-                <Link>  <Image imgsrc={ad_1} /></Link>
+                <Link to={"/shop"}>  <Image imgsrc={ad_1} /></Link>
                     </div>
                     <div className="w-[48.5%] ">
                     <div className="">
-                         <Link>  <Image imgsrc={ad_2}  className={''} /></Link>
+                         <Link to={"/shop"}>  <Image imgsrc={ad_2}  className={''} /></Link>
                     </div>
                     <div className="">
-                         <Link>  <Image imgsrc={ad_3} className={'pt-[35px] '} /></Link>
+                         <Link to={"/shop"}>  <Image imgsrc={ad_3} className={'pt-[35px] '} /></Link>
                     </div>
                
                     </div>
