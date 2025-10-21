@@ -5,6 +5,7 @@ import Product from '../Layouts/Product'
 import Flex from '../Flex'
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
+import { Link } from 'react-router-dom'
 
 const Shop = () => {
 const page_size=8
@@ -53,18 +54,23 @@ const gotoPrevPage=()=>{
            
          <Flex className={"  gap-x-[15px]  -mr-[80px] flex-wrap pt-10  "}>
    
-          {curreantproduct.map((item,x)=>
-            <Product
-            key={x}
-                productImg={item.img?.formats?.thumbnail?.url || item.image}
-               className={'w-[23%]  px-4   h-[390px]  flex flex-col '}
-               imgclassName={!item.img? ' h-[300px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50':""}
-                tag={item.image?"New":"10%"}
-                ProductName={ item.title }
-               ProductPrice={item.price}
-                
-              />
-          )}
+        {curreantproduct.map((item, x) => (
+  <Link
+    to={`/product/${item.id || x}`}  // Unique URL for each product
+    state={{ product: item }}        // Pass the product details
+    key={x}
+    className="w-[23%] px-4 flex flex-col"
+  >
+    <Product
+      productImg={item.img?.formats?.thumbnail?.url || item.image}
+      imgclassName={!item.img ? 'h-[300px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50' : ""}
+      tag={item.image ? "New" : "10%"}
+      ProductName={item.title}
+      ProductPrice={item.price}
+      className="h-[390px] flex flex-col"
+    />
+  </Link>
+))}
           </Flex>
 
          <div className="flex items-center justify-center m-auto py-7 gap-x-4 ">

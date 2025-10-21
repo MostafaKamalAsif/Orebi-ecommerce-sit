@@ -25,7 +25,7 @@ const Header = () => {
   const [showUser, setShowUser] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [toast, setToast] = useState(null);
+ 
 
   const cartData = useSelector((state) => state.addcart.value);
   const lastAdded = useSelector((state) => state.addcart.lastAdded);
@@ -36,14 +36,7 @@ const Header = () => {
   const userRef = useRef();
   const loginRef = useRef();
 
-  // Show toast only when adding new item
-  useEffect(() => {
-    if (lastAdded) {
-      setToast(lastAdded);
-      const timer = setTimeout(() => setToast(null), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [lastAdded]);
+  
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -65,6 +58,7 @@ const Header = () => {
       document.removeEventListener("click", closeLogin);
     };
   }, []);
+  
 
   const toggleCategory = () => setShowCategory(!showCategory);
   const toggleUser = () => setShowUser(!showUser);
@@ -257,26 +251,7 @@ const Header = () => {
         </div>
       )}
 
-      {/* Toast Popup */}
-      {toast && (
-        <div className="fixed bottom-5 right-5 bg-white shadow-xl border border-gray-200 rounded-lg p-3 flex items-center gap-3 animate-slide-in z-[999]">
-          <img src={toast.img} alt={toast.title} className="w-10 h-10 rounded-md object-cover" />
-          <div>
-            <p className="text-[14px] font-semibold text-gray-800">{toast.title}</p>
-            <p className="text-[12px] text-green-600 font-medium">Added to cart successfully!</p>
-          </div>
-        </div>
-      )}
-
-      <style>
-        {`
-        @keyframes slideIn {
-          0% { transform: translateX(100%); opacity: 0; }
-          100% { transform: translateX(0); opacity: 1; }
-        }
-        .animate-slide-in { animation: slideIn 0.4s ease-out forwards; }
-        `}
-      </style>
+    
     </>
   );
 };

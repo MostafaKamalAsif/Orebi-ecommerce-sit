@@ -11,6 +11,7 @@ import Journal from './Components/Pages/Journal';
 import Error from './Components/Pages/Error';
 import SignUp from './Components/Pages/SignUp';
 import Checkout from './Components/Pages/Checkout';
+import ProductDetails from './Components/Pages/ProductDetails';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <Route path="journal" element={<Journal/>}/>
         <Route path="sign_up" element={<SignUp/>}/>
         <Route path="checkout" element={<Checkout/>}/>
-    
+        <Route path="/product/:id" element={<ProductDetails/>}/>
+          
 
         <Route path='*' element={<Error/>}/>
       </Route>
