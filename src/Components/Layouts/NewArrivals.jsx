@@ -52,12 +52,14 @@ alldatas()
           />
 <Slider {...settings} className="-mx-5">
   {
-    alldata.map((iteam)=>
-   
+    alldata.map((item,x)=>
+   <Link to={`/product/${item.id}`} state={{ product: item }} key={x}>
+
       <div className="px-5">
-        <Link to={"/"}>
-        <Product productImg={iteam.img.formats.thumbnail.url }  tag={"10%"} ProductName={iteam.title} ProductPrice={iteam.price}/></Link>
+        
+        <Product productImg={item.img.formats.thumbnail.url }  tag={"10%"} ProductName={item.title} ProductPrice={item.price}/>
       </div>
+      </Link>
        )
   }
      

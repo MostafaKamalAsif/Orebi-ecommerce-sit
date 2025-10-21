@@ -28,7 +28,7 @@ const Header = () => {
  
 
   const cartData = useSelector((state) => state.addcart.value);
-  const lastAdded = useSelector((state) => state.addcart.lastAdded);
+
   const dispatch = useDispatch();
   const location = useLocation();
 

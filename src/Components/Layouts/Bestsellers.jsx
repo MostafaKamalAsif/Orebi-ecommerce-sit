@@ -28,7 +28,7 @@ const Bestsellers = () => {
           />
           <Flex className={"justify-between gap-x-10"}>
             {alldata.slice(-4).map((item, i) => (
-              <Link to={"/"} key={i}>
+              <Link to={`/product/${item.id}||i`} state={{product:item}} key={i}>
                 <Product
                 className={"w-[300px]"}
                   productImg={item.img.formats.thumbnail.url}

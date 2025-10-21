@@ -28,22 +28,23 @@ alldatas()
             text={"Special Offers"}
             className={"font-bold text-black text-[39px] pb-[48px]"}
           />
-          <Flex className={"  gap-x-[15px] gap-y-10 -mr-[80px] flex-wrap   "}>
+           <Flex className={" justify-between flex-wrap   "}>
           {
-            alldata.slice(0,8).map((iteam)=>    
-          
-           
+            alldata.slice(0,8).map((item,x)=>    
+      
+           <Link to={`/product/${item.id}||x`} state={{product:item}} key={x}>
               <Product
-                productImg={iteam.image}
-               className={'w-[23%]  px-4  h-[390px]  flex flex-col '}
+                productImg={item.image}
+               className={'w-[320px]  px-4  h-[390px]  flex flex-col '}
                imgclassName={' h-[300px] object-contain w-full m-auto pt-13 pb-6 bg-[#D8D8D8]/50'}
                 tag={"New"}
-                ProductName={iteam.title}
-                ProductPrice={`${iteam.price}`}
+                ProductName={item.title}
+                ProductPrice={`${item.price}`}
                 
               />
          
-          
+          </Link>
+        
          ) }
           </Flex>
         </Container>
